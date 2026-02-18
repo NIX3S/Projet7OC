@@ -28,7 +28,7 @@ flowchart TD
     D --> E[LangChain + LLM Mistral]
     E --> F[API FastAPI exposée]
     F --> G[Utilisateur / Client]
-````
+```
 
 * **Prétraitement** : nettoyage des champs, normalisation des dates, génération d’un texte contextuel.
 * **Embeddings** : Mistral Embed API, vecteurs float32.
@@ -182,5 +182,5 @@ projet7/
 * Déploiement cloud pour production
 
 ---
-
+````
 
