@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Environnements virtuels
+.venv/
+env/
+venv/
+ENV/
+
+# Jupyter notebooks
+*.ipynb
+
+# Fichiers temporaires / logs
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Fichiers de données
+*.txt
+*.csv
+
+# Fichiers sensibles / variables d'environnement
+.env
+.env.*
+.venv
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+
+# IDEs
+.vscode/
+.idea/
+*.iml
