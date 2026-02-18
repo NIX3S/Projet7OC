@@ -1,6 +1,4 @@
-
-````markdown
-#  Assistant intelligent de recommandation d’événements culturels
+# Assistant intelligent de recommandation d’événements culturels
 
 Ce projet propose un **assistant conversationnel** capable de recommander des événements culturels à partir d’une base de données publique (OpenAgenda) et d’un **modèle LLM intégré via LangChain et FAISS**.  
 
@@ -8,13 +6,13 @@ L’utilisateur peut poser des questions en langage naturel et recevoir des rép
 
 ---
 
-##  Fonctionnalités
+## Fonctionnalités
 
-- Recherche d’événements pertinents via **similarité sémantique**.
-- Génération de réponses structurées à partir d’un **LLM** (Mistral AI).  
-- Base vectorielle **FAISS** pour un accès rapide aux événements.  
-- **API REST** exposée avec endpoints `/ask`, `/rebuild`, `/health`, `/metadata`.  
-- Conteneurisation **Docker** pour un déploiement simple et reproductible.
+- Recherche d’événements pertinents via **similarité sémantique**
+- Génération de réponses structurées à partir d’un **LLM** (Mistral AI)  
+- Base vectorielle **FAISS** pour un accès rapide aux événements  
+- **API REST** exposée avec endpoints `/ask`, `/rebuild`, `/health`, `/metadata`  
+- Conteneurisation **Docker** pour un déploiement simple et reproductible  
 
 ---
 
@@ -30,23 +28,23 @@ flowchart TD
     F --> G[Utilisateur / Client]
 ```
 
-* **Prétraitement** : nettoyage des champs, normalisation des dates, génération d’un texte contextuel.
-* **Embeddings** : Mistral Embed API, vecteurs float32.
-* **Vectorstore** : FAISS (IndexFlatL2) avec métadonnées associées.
-* **LLM** : Mistral-large-latest intégré via LangChain.
-* **API** : FastAPI, exposant les endpoints pour poser des questions et reconstruire la base.
+* **Prétraitement** : nettoyage des champs, normalisation des dates, génération d’un texte contextuel  
+* **Embeddings** : Mistral Embed API, vecteurs float32  
+* **Vectorstore** : FAISS (IndexFlatL2) avec métadonnées associées  
+* **LLM** : Mistral-large-latest intégré via LangChain  
+* **API** : FastAPI, exposant les endpoints pour poser des questions et reconstruire la base  
 
 ---
 
-##  Prérequis
+## Prérequis
 
-* Python 3.12
-* Docker & Docker Compose
-* Clé API **Mistral AI** (dans `.env`)
+- Python 3.12  
+- Docker & Docker Compose  
+- Clé API **Mistral AI** (dans `.env`)  
 
 ---
 
-##  Installation et exécution
+## Installation et exécution
 
 ### 1. Cloner le projet
 
@@ -72,7 +70,7 @@ L’API sera disponible sur : `http://127.0.0.1:8000`
 
 ---
 
-##  Endpoints principaux
+## Endpoints principaux
 
 ### `/ask` : poser une question
 
@@ -121,18 +119,17 @@ L’API sera disponible sur : `http://127.0.0.1:8000`
 
 ### `/health` et `/metadata`
 
-* Vérification de l’état de l’API et informations générales (uptime, version…).
+- Vérification de l’état de l’API et informations générales (uptime, version…)
 
 ---
 
-##  Tests unitaires
+## Tests unitaires
 
-* Fichiers de tests : `app/test/test_rag.py`
-* Tests principaux :
-
-  * Scores de similarité et coverage entre 0 et 1
-  * Vérification des réponses non vides
-* Pour exécuter les tests (avec le CSV déjà généré) :
+- Fichiers de tests : `app/test/test_rag.py`  
+- Tests principaux :  
+  - Scores de similarité et coverage entre 0 et 1  
+  - Vérification des réponses non vides  
+- Pour exécuter les tests (avec le CSV déjà généré) :
 
 ```bash
 pytest app/test/test_rag.py --maxfail=1 --disable-warnings -v
@@ -140,7 +137,7 @@ pytest app/test/test_rag.py --maxfail=1 --disable-warnings -v
 
 ---
 
-##  Arborescence du projet
+## Arborescence du projet
 
 ```
 projet7/
@@ -153,7 +150,7 @@ projet7/
 │  ├─ app_streamlit.py
 │  ├─ main.py
 │  └─ exceptions.py
-├─ test/
+├─ tests/
 │  ├─ evaluate_rag.py
 │  ├─ test_rag.py
 │  └─ gold_answers.csv
@@ -166,21 +163,19 @@ projet7/
 
 ---
 
-##  Résultats & Évaluation
+## Résultats & Évaluation
 
-* Jeu de test annoté avec 20 questions représentatives.
-* Scores de similarité sémantique et couverture évalués via RAGas.
-* Analyse qualitative : réponses pertinentes, contextuelles et synthétiques.
-
----
-
-##  Perspectives
-
-* Filtrage dynamique par date et lieu
-* Mise en cache des embeddings pour accélérer les requêtes
-* Passage à FAISS HNSW pour de meilleures performances sur de gros volumes
-* Déploiement cloud pour production
+- Jeu de test annoté avec 20 questions représentatives  
+- Scores de similarité sémantique et couverture évalués via RAGas  
+- Analyse qualitative : réponses pertinentes, contextuelles et synthétiques  
 
 ---
-````
 
+## Perspectives
+
+- Filtrage dynamique par date et lieu  
+- Mise en cache des embeddings pour accélérer les requêtes  
+- Passage à FAISS HNSW pour de meilleures performances sur gros volumes  
+- Déploiement cloud pour production  
+
+---
