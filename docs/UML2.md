@@ -16,12 +16,18 @@ flowchart LR
     %% Système RAG
     %% =========================
     USER[Utilisateur] --> API[API FastAPI]
+
     API --> RAG[RAGSystem - LangChain]
-    RAG --> QV[Question → Embedding]
-    QV --> FAISS
-    RAG --> META
+
+    %% Étape clé : transformation question en vecteur
+    RAG --> QEMB[Question embedding - Mistral]
+    QEMB --> FAISS
+    FAISS --> RAG
+
+    %% Génération via LLM après récupération des documents
     RAG --> LLM[LLM - Mistral Large]
     LLM --> RAG
+
     RAG --> API
     API --> USER
 
