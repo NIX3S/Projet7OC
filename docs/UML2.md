@@ -17,7 +17,8 @@ flowchart LR
     %% =========================
     USER[Utilisateur] --> API[API FastAPI]
     API --> RAG[RAGSystem - LangChain]
-    RAG --> FAISS
+    RAG --> QV[Question → Embedding]
+    QV --> FAISS
     RAG --> META
     RAG --> LLM[LLM - Mistral Large]
     LLM --> RAG
@@ -29,4 +30,5 @@ flowchart LR
     %% =========================
     TESTS[Tests unitaires & évaluation] --> API
     TESTS --> RAG
+
 ```
