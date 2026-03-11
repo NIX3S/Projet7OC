@@ -73,7 +73,7 @@ docker compose --profile api --profile streamlit up -d
 ```
 
 L’API sera disponible sur : `http://127.0.0.1:8000`
-
+L'interface streamit sera sidponible sur `http://127.0.0.1:8501/`
 ---
 
 ## Endpoints principaux
