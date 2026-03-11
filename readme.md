@@ -62,8 +62,14 @@ MISTRAL_API_KEY=ton_api_key_mistral
 ### 3. Build et lancer le conteneur Docker
 
 ```bash
-docker build -t rag_app .
-docker run -p 8000:8000 rag_app
+docker compose build
+
+#Tout lancer
+docker compose --profile rebuild --profile api --profile streamlit up -d
+
+#lancer api + streamlit
+docker compose --profile api --profile streamlit up -d
+
 ```
 
 L’API sera disponible sur : `http://127.0.0.1:8000`
