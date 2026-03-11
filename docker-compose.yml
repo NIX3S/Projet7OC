@@ -1,0 +1,36 @@
+services:
+  rebuild:
+    build:
+      context: .
+      dockerfile: Dockerfile.api  # Utilise le même environnement
+    command: ["python", "app/rag/rebuild_faiss.py"]
+    volumes:
+      - .:/app
+    profiles:
+      - rebuild  # Service optionnel
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    profiles:
+      - api
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    profiles:
+      - streamlit
+
+networks:
+  default:
+    name: openagenda-network
