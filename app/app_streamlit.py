@@ -14,7 +14,7 @@ if st.button("Envoyer") and question.strip():
     with st.spinner("Recherche en cours..."):
         try:
             # Appel à l'API FastAPI locale
-            response = requests.post("http://127.0.0.1:8000/ask", json={"question": question})
+            response = requests.post("http://api:8000/ask", json={"question": question})
             response.raise_for_status()
             data = response.json()
 
